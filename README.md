@@ -1,299 +1,1139 @@
-# Get started
+# Introduction
 
+Hive can be considered as an **enterprise social network**, where coworkers or simply collaborators can **share the content** of different types awaiting **answers from other collaborators.** The possibility to create different groups and target them when creating "Posts" in order to share them only with some specific users makes collaborators able to create a group for a special project and for a limited period of time thus sharing ideas to the persons related to this project or simply create a group of friends they want to be able to share content with privately.
 
-> # Mobioos Forge: Map business functionality into your code 
+This document details the standard functionalities of the application, its original specifications if I may say, see the related document to learn about this application’s <a href="#/?id=variability-specification-the-feature-model">variability points</a> and see <a href="#/?id=variability-implementation-mapping-and-derivation">how it has been done</a>.
 
-***Mobioos Forge*** Mobioos Forge helps developers to map the business functionality of their application into their code allowing them to see the precise implementation of each feature in their code.  
-Based on this mapping, you can:
-* Deeply customize your application: you can create a specific configuration of your application, containing only the features of your choice a then derivate this configuration. To customize applications, Mobioos Forge implements the general process of what is referred to as Software Product Line Engineering (SPLE). The next figure illustrates this general process that includes four activities organized into two levels: Domain Engineering and Application engineering.           
-* Extract only the code of a specific set of feature(s) (to be available soon):  to easily reuse functionality across your application or bootstrap your application modernization process in micro-service. 
+# User Guide
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/1.png">
+## Connection
 
-> **Domain Engineering**
+<div class="row">
 
-**1. Feature Model Specification**
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image001.png)
 
-The first activity towards the customization of applications is to explicitly specify the different features of the application. A specific feature can refer to 1) a specific functionality implemented by the application or 2) a resource that is included in the application. Features are described in a model called ***feature model (FM)***. The next Figure shows an example of feature model for a simple E-shop application where each node in the model represents a feature. To specify the different variation points to customize the application,feature model allows describing many types of variability. This includes mechanisms to explicitly specify the mandatory features (features that will be present in all customizations), optional feature (that can deleted), alternative feature (with a “OR” or an “XOR” choice). Feature models can also contain constraints that specify dependencies between features.  
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image002.png)
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/2.jpg">
+</div>
 
+In order to access the application, users can create an account by clicking the **"Register"** link and filling the mandatory information, the mail and password can then be used later on to connect.
 
-**2. Feature Maps**
+## The Flow Section
 
-The objective is to create a mapping between features and code fragments using annotations and/or colors. The idea is to be able to create feature maps showing for each feature what are the code fragments that implement it as illustrated in the next Figure.  
+Once users are connected to the application, they have access to the first page of the application, the Flow. This is the central point of the application, where are regrouped all of the collaborators shared content, presented as cards of different types depending on the content type, an "Idea" card for example can be answered by "Yes" or "No" and a "Report" card is automatically generated the day after the concerned card's expiration date to show its results.
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/3.png">
+<div class="row">
 
-> **Application Engineering**
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image004.png)
 
-**1. Configuration**
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image006.png)
 
-The object for this phase is a selection configuration of features to customize the application for a specific need. The next Figure shows a configuration example where Creditcard and High security are selected as well as the mandatory features. On the contrary, Bank Transfer, Standard security, and Search are not selected. 
+</div>
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/4.jpg"> 
+Users can navigate through the list of cards by swiping them to the left or right or decide to "Discard" one by swiping it to the top of the screen, this way the card won't be shown again to this user.
 
-**2. Derivation**
+<div class="align-center">
 
-The derivation process generates the source code of the customized variant that corresponds to a specific configuration by removing fragments related to the disabled features (program transformation). 
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image008.png)
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/5.png"> 
+</div>
 
-> **Feature Model background**
+## The Highlights Section
 
-Feature models represent the information of all possible products of a software product line in terms of features and relationships among them. Feature models are a special type of information model widely used in software product line engineering. A feature model is represented as a hierarchically arranged set of features composed by: 
+The Highlights section of the application is shared by all the collaborators and shows several information.
 
-1. Relationships between a parent (or compound) feature and its child features (or sub features).  
+The best contributor is the collaborator that has created the most post in the past 30 days and has the most average answer number on these posts.
 
-2. Cross–tree (or cross–hierarchy) constraints that are typically inclusion or exclusion statements in the form: if feature F is included, then features A and B must also be included (or excluded).  
+<div class="align-center">
 
-Feature models are used in different scenarios of software products ranging from model-driven development, feature-oriented programming, software factories, or generative programming, all of them around software product line development. Although feature models are studied in software product line engineering, these information models can be used in different contexts ranging from requirements gathering to data model structures, hence the potential importance of feature models in the information systems domain. 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/6.jpg"> 
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image009.png)
 
-**• Mandatory:** A child feature has a mandatory relationship with its parent when the child is included in all products in which its parent feature appears. 
-• Optional: A child feature has an optional relationship with its parent when the child can be optionally included in all products in which its parent feature appears.  
-**• Alternative:** A set of child features have an alternative relationship with their parent when only one feature of the children can be selected when its parent feature is part of the product.  
-**• Or:** A set of child features have an or-relationship with their parent when one or more of them can be included in the products in which its parent feature appears. 
+</div>
 
---- 
+The best post shows the results of a post that expired in the past 10 days that have the best (answers /views) score.
 
-> # Mobioos Forge Extension for Visual Studio Code
+<div class="align-center">
 
-Mobioos Forge is implemented as Visual Studio Code. This section the steps to install it and a complete guideline on How to use the extension. 
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image010.png)
 
+</div>
 
-# Installation
+Finally, the top posts are non expired posts (up to 5) that have the best (answers /views) score. It is possible to click on one of the list's items to show the card and answer it if it wasn't done before, otherwise, it shows its results.
 
-In order to install Mobioos Forge extension, you need to have Visual Studio code installed in your computer.  
-**Mobioos Forge** is an extension for Visual Studio code. To install it open VS Code and navigate to: **File → Preferences → Views and More Actions(...) → Install from VSIX**, then you have to select **Mobioos Forge** VSIX file.  
-Once you finish the installation and you get " **Mobioos-Forge ready to use!** " Message you can see **Mobioos Icon** on the side menu.  
-You are now ready to start using Mobioos Forge. 
+<div class="align-center">
 
-**How to use Mobioos Forge** 
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image012.png)
 
-Before using **Mobioos Forge** you first need some of its concepts and how to use them in the extension. To illustrate we can set apart into 4 main steps:   
+</div>
 
- 1. Feature Model Specification
-     * a.Init a feature model in this folder  
-     * b.Design the Feature Model  
-2. Feature Maps  
-    * a.Add a feature/resource
-    * b.Map features/resources 
-3. Configuration (Create a configurations)  
-4. Derivation (Package for Mobioos Fusion)    
+<div class="row">
 
-This is the sequence of how to use Mobioos Forge, so after installing the extension on VS code we must add the project folder to VS code **File → Open Folder** or by using keyboard shortcuts **(Ctrl+O)** then select for the target folder (project), when you finish this step, you should get a notification "Mobioos-Forge ready to use!".  
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image014.png)
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/7.gif">
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image016.png)
 
+</div>
 
---- 
-# 1.Manage your feature model
+## The Posts Section
 
-## a. Init a feature model
-In this phase, we are going to create a feature model (**FM**) inside the project folder. This model describing the feature tree defined Functionalities, Resources, and constraints that we are processing through all these steps. Creation of such feature models is simple, we have just to perform a right-click inside the folder; then click "**Mobioos-Forge**" and chose "Init a feature model in this folder". Next, you must enter the feature model name. Besides the fm.forge file this will also create some additional files:  
-* Functionalities.maps.forge  
-* Resources.maps.forge  
-* Lib.forge    
+The post section is where users find their previously created posts, can see their details and results, and create new ones. It shows a list of top posts that are the current user's posts that have the most answers, and the list of all the user's posts.
 
-To display the operations on this feature model you have just to right-click on the **FM.forge file** then it shows a sub-menu to manage all operations. The next figure clarifies this process.  
+<div class="align-center">
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/8.gif">
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image018.png)
 
-Besides what we have seen before to display the operations on this feature model, you can also use the Mobioos Menu to run different operations you have only Click on Mobioos Icon then load the target model. You can see the process in the next figure.
+</div>
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/8p1.gif">
+The post creation process starts when the user clicks on the create button in the top right corner and then needs to choose which type of post to create.
 
-## b.Design your features
-As mentioned above, we considered that the variability should be mapped to the elements of the model. This means that for each feature we need to identify the elements in the Model that are impacted by this feature. For instance, the functional features concern functions inside the SmartApp, it could be login, Buttons, Toggle, etc. The functional variability is related to the features using mechanisms such as Optionality, Or, and XOR.  
-In addition to the functional features, we need also to consider what is referred to as “Resource features.” In this context, variability does not concern functionalities inside the SmartApp but resources that can include images, icons, text, Colors used API and files, etc. A feature model can also define a set of constraints specifying dependencies between the different features.   
-By adding the Feature Model in the previous step, it should be open a new VS Code window under the name "**Feature Model Designer**". To understand this part let us discover the interface and the main functionalities. 
+<div class="align-center">
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/9.jpg">
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image019.png)
 
-### Adding Nodes
-To start creating your feature model you need to add the nodes to the core (2) as a tree. To do this you can simply click on node a "Plus icon :heavy_plus_sign: " will displayed under the node when you click on it a new resource /feature will be created and linked to other one. this is how you add new features to the model and create links among those features. Or you can do right-click on the feature or resource then choose what you want to add Feature/Resource then select to position above or below. all these process are demonstrated on next figure.
+</div>
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/10.gif">
+Once the post type is selected, the user is invited to enter its content and choose a picture to display on the card or choose to use the default image. If the card is a question it will then ask the user to create up to 5 answers available for the question. The card then needs to be configured, it needs a publication date that is the date at which the card will be available for other collaborators and an expiration date that is the date until which it will be available.
 
-After adding a node, you must fill up all the information about each feature. When we click on the created feature it allowed us to edit on a section (5) from screenshot "Feature Model Designer»: 
-* **Node Type:** It is for selecting a type (feature or resource) and which resource file, Text, Fusion asset, and color.   
-* **Name:** the id that is shown on the model and during the feature mapping.  
-* **Children rule:** to give a role how the node children are been selected for the Xor (only one child), Or (At least one), No rule (selecting the child it will be free with no rule).  
-* **Node rule:** to select if the node is Mandatory or Optional.  
-* **Chatbot Natural Questions:** give a question for the feature during the interview it must be an (LG file). 
-* **Team Members Role:** To specify the Role that can answer this question. for example (Securite, Store Viewer, Resource's contributor ...). 
-* **Feature Help File:** it is (md file) for the help that appears during the interview (description for the object of this node). 
-* **Node weight:** it is for the order on the node during the interview in decreasing order. When we add these configurations, you should click on "Update node and save". To make all this clear you can see the next figure it is a recap step by step.  
+It is possible to make the card public in order to make it available for every others contributors or to make it target one or more specific group(s) in order to make it target specific collaborators.
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/11.gif">
+Once all the card's settings have been correctly configured a preview of the card as it will be displayed in the Flow is showed and the user can choose to save it or to go back and change the information. Once saved, the card will be available in the user's posts list as well as its results. It is important to know that only the yet to be published cards can be edited after being saved, once a card is published its content is definitive (it's still possible to delete it though).
 
-When you finished adding all the nodes (Features/Resources) you obtain a tree for your future model it is like the model.   
+<div class="row">
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/12.jpg">
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image021.png)
 
-### Adding constraint: 
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image023.png)
 
-The definition of a constraint is something that imposes a limit or restriction or that prevents something from occurring, for more information, you can check this link that explains how to use the constraints. 
-To create constraints, you can click on Create new constraint (6) from "**Feature Model Designer**" then select your constraint by clicking on Features/Resources and constraint operations. The newly created constraint will be displayed in the constraints section (7). 
+</div>
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/13.gif">
+<div class="align-center">
 
-When you finished creating nodes and constraints, you can move to the next step "**Mapping features**". 
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image025.png)
 
----
+</div>
 
-# 2.Map your features
+Clicking on one of the main page items will open the concerned post's details page, showing its different information chosen during its creation and others such as its status (published, not published, or closed) and its actual results.
 
-## a.Add markers
+<div class="align-center">
 
-In this step, you are going to identify the resources and features that you have created in the previous step. It is amazingly simple just give some initial information in your source code; this is a preparation for the next step where Mobioos Forge will detect the rest of the code. For this step to make it simply let us use "Notepad" source code. we have 3 main functions Cut, Paste, and Copy after adding these 3 features we move to the code, and on the definition of these 3 variables:     
-     1.Select the feature   
-     2.Click on **Show Fix** Icon ![](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/13a1.png) or (**Ctrl +;**)     
-     3.Click on "**Add functionality marker**."    
-     4.Click on the feature’s name    
-     5.Select the analyzer.    
-Repeat all this for all the feature and resource. In the next figure, you can see how it works. 
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image027.png)
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/14.gif">
+</div>
 
-To remove the marker, it quite simple just click on "**Mobioos-Forge: Remove a functionality marker**" you see this up the marked feature you want to remove, and you will get a success message. 
+It is possible from this page or the previous one to click on the menu icon (top right corner in the details page and end of the line of each item in the main page) to open a secondary menu giving access to the deletion of the post or its edition if it is in the "unpublished" status. When accessing the post edition it is then possible to change all the card information that were chosen during its creation and save the changes.
 
-![](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/13a2.png) ![](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/13a3.png)
+<div class="align-center">
 
-## b.Map the whole implementation
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image029.png)
 
-Here where **Mobioos Forge** will take care of all the work of mapping the Features and resources in the source code. The principle is that Mobioos Forge will identify all the features and resources according to what you have added in the previous step and ask you what you should do (**Delete, Replace, Ignore and Cancel**).To do this right-click on file **"fm.Forge" → Mobioos-Forge → Feature Mapping → Map all features** then, a new window opened with marked feature and message "**Mapping: functionality 'Name of feature**' " after that select the code press (**Ctrl+Q**) then select one of the options (**Delete, Replace, Ignore and Cancel**). Complete the process until the end (message appears that Mapping is done).
-In addition, we can run the propagation for all the features or one by one (selected features/resources), we also have an indicator that allows us to see which features are not propagated yet. It is only we must choose from the **Mobioos menu “Map Selected Features”** or **“Map Selected resources”** .
+</div>
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/15.gif">
+## The Account Section
 
-For example, we select Delete if we want to remove Feature/resource from the code when the user does not want to use it on his last version of the application. For a better image, let us use the Notepad source code we have selected functionality "cut" during the mapping we select Delete which means through configuration or interview with the chatbot it allows users to keep or remove this functionality from the final app that he is going to use. So, what it Delete mean using the code without the selected feature. 
+The account section is where users can review and edit their profile information, manage their groups, change the application settings or sign out from the application.
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/16.gif">
+<div class="align-center">
 
-**Replace** it means to replace the code of feature/resource with a new code.to understand this let us back to the notepad code source we have the feature "Copy" when we replace it with new code let say "paste" it will be the "Cut". During the configuration or interview, if we did not choose to use "Copy", it automatically replaced with replacement code "Cut", on the contrary, if we keep it the source code does not change. When we select Replace, new windows opened to type the new code then press (**Ctrl+S**) after that enter a new ID at the end of this process you will get a message informing you that was a success. 
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image031.png)
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/17.gif"> 
+</div>
 
-When you finished the mapping, you can check all features maps and replacements library from the menu you will find when you click on Mobioos Icon. On this menu, you can also do the mapping directly by clicking on "**Map all features**". 
+> The profile
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/18.gif">
+Users are able to view and edit any of their profile information from this page.
 
-To map the features and resources you can do this by Clicking on Mobioos Icon then choose from the menu which type of mapping you want all at once or by selecting a specific feature(s). The following figure demonstrates that. Also, we can cancelled the mapping.
+<div class="align-center">
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/18a1.gif">
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image033.png)
 
----
+</div>
 
-# 3.Create an app configuration
+> Groups management
 
-This step is a checker for all the previous steps to validate the feature model and create a subproject with a new configuration based on the choice that is made during this process. To do this right-click on the file (**"fm.forge" → Mobioos-Forge → Create a Configurations**) or by choosing directly from Mobioos Menu "**Create a Configurations**" Then type a name for this configuration a new window opens "**Configuration editor**" select your configuration then click on Save when you get the message of success, click on Derivate you will receive a bath of location to a new project file. The next figure clarifies how to do all configuration processes. And also, you can create multiple configurations, and by the fact that we can create a branch git of varied automatically after the derivation and allow to run pipelines ci/cd for deploying and testing the variant. 
+In this part of the application, users can see and manage the groups of which they are a member, or the ones they created and create new ones. This group system makes users able to target a specific group and by extension-specific collaborators when creating cards in order to restrict the list of persons being able to answer these cards.
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/19.gif">
+<div class="align-center">
 
----
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image035.png)
 
-# 4.Make a derivation
+</div>
 
-This is the last step before generating the smartApp file to use it on Mobioos-Fusion. it just a data entry to be added in the package that Mobioos-Fusion needs to add the smartApp in the store, also for the interview and creating Focus apps. This step has 6 phases:   
-     **1.Smartapp information:** Give information about the application (Name, Version, Description, and Tags) this information will be displayed on Mobioos Fusion Store.   
-     **2.Stacks:** Give information about the application source code, you can add more than one stack (Frontend, Backend, Database).     
-     **3.Build:** it is a file used to build the focus app, which means the file contains the structure for Mobioos Fusion steps on how to build the focus apps.   
-     **4.Assets:** Specify one or more asset files (constrained or rules) linked to the smartapp.      
-     **5.Configuration:** it is the same as the previous step “Create a configuration” except on this step the generated file will be used to verify the derivation on Mobioos-Fusion.     
-     **6.Package:** give a name for the generated file and path for the Package (target folder). at the end you get a smartApp in the target folder you can use this file to add your app on Mobioos-Fosion.
+In order to create a group, users only need to enter a name, a country, and a city for the group before saving it.
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/20.gif">
+<div class="align-center">
 
----
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image037.png)
 
-# Other Functionalities
+</div>
 
+Once the group is created, it is directly possible to add any collaborators as members of this group and start creating cards targetting this group. The group creator can of course remove members from his groups as well.
 
-**Mobioos-Forge** also provide other functions to help and make the general process of Software Product Line Engineering easier and to be much accerance during this process. 
+<div class="row">
 
-## 1: Feature Model Diagnostics
-Its tool to help and inform users to avoid constraints problems by giving suggestions on which constraint you can add and how the result will be to the generated variants. 
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image039.png)
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/25.png">
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image041.png)
 
+</div>
 
-## 2: Reuse Functionality
+<div class="align-center">
 
-Mobioos-Forege allows you to create or split a sub-model from an existing Features/Resource and use it in other by saving all the relations on the original model and the sub one. Next will we see how to use these options .
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image043.png)
 
-**Split as new sub-model**   
-The split feature is an extremely useful tool when designing FM model. Once the split feature has completed, it will show in the tree of the sub-model. Any features that you apply to the sub model before the split feature will automatically propagate to the original one. Any features that come after the split feature exist only in the original model. This sub-model appears on the original model as a yellow feature and ".fm.forge" file saved on the given location.    
-So, we can extract that the use of split feature is to create multiple sub-models from an existing model. You can create model "fm.forge", and form an assembly from these sub-models.    
-To do the split you can simply open the Feature model designer then Right-click on the desired feature and click on "**Ruse**" from the menu select "**Split as new sub-model**". In the below gif image, you can see all the process. 
+</div>
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/26.gif">
+Members can be removed by the creator of the group by clicking on their corresponding menu icon (at the end of each line of the list) and select the remove option or by accessing the same page used to add members and uncheck the corresponding checkboxes before saving. the members themselves can leave the group by clicking on their corresponding menu icon in the list of members and choosing "leave", this is also possible from the list of groups by clicking on the menu icon next to a group and choosing "leave" for groups of which the user is not the creator.
 
-**Attach a sub-model**
-The Mobioos-Forge provides an adding or to be more specific attaching option this feature help to merge many models or sub-models. You can use splited model inside another one by opening the Feature model designer then Right-click on the desired feature and click on "Ruse" from the menu select "Attach a sub-model". The next figure illustrated the attaching feature.
+<div class="row">
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/27.gif">
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image045.png)
 
-As you can see, we have used a sub-model (default_language)from another project on this project.
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image047.png)
 
-**Create a sub-model**   
-Sometimes the user needs to create a sub-model to attached directly inside FM model. this option has been also integrated on Mobioos-forge. You can add a new sub-model to the original one by selecting with which Feature/Resource you want to attach then Right-click and click on "Ruse" from the menu select "Create new sub-model " next you have to give a name to this model once you finish a new "Feature model designer" Tab opened to create the Tree for this FM. On the original Fm tree, the new sub-model will add to this one. Also, the fm.forge file will be created. 
+</div>
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/28.gif">
+Group creators can use the same icon in the group's list page to delete a group or edit it, cards targetting deleted group will not be available anymore but their results will stay viewable for their creator. Editing a group is just a matter of changing its name, country, and city and has no further impact.
 
-## 3: File Marker
-File markers are markers that the user can add to a file/folder They are used to associate a feature to the selected file/folder. To do so, you just have to right click on a **file/folder > Mobioos-Forge > File Markers > Add a file marker**, then you select your feature.MF marked put beside the file you have selected.   
-After doing so, if you initiate the mapping process, the extension will look for references to the file/folder you just marked, and propagate them with the feature. And if you derivate a variant that does not contain the feature, all file/folder associated with the feature will be deleted. The next figure illustrates the file Marker process.
+<div class="row">
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/28a1.gif">
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image049.png)
 
-## 4: Feature Mapping through the Designer 
-The user is able to run the mapping from the designer by mapping all the features at once or selecting the Feature/Recourse one by one. This option allows users to map only a specific feature without doing it for all of them.it so simple you can click on the button "Map All features" or by Clicking on the feature then select the name and next click on " Map selected feature". 
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image051.png)
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/29.gif">
+</div>
 
----
+> Settings
 
-> # Mobioos Forge Settings  
+The settings page enables users to change the application language, English and French are available.
 
-You can customize Settings/Parameters in **Mobioos Forge**. This is a description how to personals settings. You can access the settings by navigating to: **File → Preferences → Settings → Extensions → Mobioos-Forge**. In addition, you can use the keyboard shortcuts (**Ctrl+,**) then search for Mobioos Forge configuration".   
+> Sign Out
 
-**Mobioos-Forge › Analysis: Default analyzer**     
-Mobioos Forge use analysis tools to Map the features and there are different analyzers:     
-Roslyn is the open-source implementation of both C# and Visual Basic compilers with an API surface for building code analysis tools.
+This takes the user back to the login page in order to reconnect.
 
-**Mobioos-Forge › Analysis: Feature mapper**      
-Feature mapper role is show code that belongs to a feature with its corresponding color or add an annotation to code that belongs to the feature.  
+#  Variability specification - The feature model
 
-**Mobioos-Forge › Decorations: Background color**     
-The goal is to Enable/Disable applying the features background colors in the editor.  
+<div class="align-center">
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/21.jpg">
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image053.png)
 
-**Mobioos-Forge › Decorations: Background nested colors**     
-Background nested colors Use the feature's color even feature is nested in other ones or blend all the nested color. 
+</div>
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/22.jpg">
+We identified several variability points for this application, we’ll detail them here using this variability model as support.
 
-**Mobioos-Forge › Decorations: Column** 
-Applying the features colors in the left column Enable/Disable. 
+## Features
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/23.png">
+> Posts_creation
 
-**Mobioos-Forge › Decorations: Column width**     
-It defined the width to use for the column's colors. 
+This feature node represents the different types of posts that user can create, the types of **idea, question,** and **event** are mandatory, meaning that they’ll always be selected (they are part of the default package of the feature of the app) while the types **quote** and **suggestion** are optional, we can use one of the two, both, or none of the two when derivating.
 
-**Mobioos-Forge › Decorations: Replacement lines to show on hover**      
-The number of lines to show when hovering a replacement Feature mapper. 
+> Flow_display
 
-<img style="margin: 0 auto; display: block;" src="https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Forge-Doc/24.png">
+This is the configuration of the flow display, the flow can be displayed as a stack of cards (as presented in the <a href="#/?id=user-guide">user guide</a>) or as a scrollable list.
 
-**Mobioos-Forge › Git-branch: Creation**       
-It is for Enable/Disable the git branch creation after the end of the derivation process. 
+We represented these two different Display via two child nodes (**cards** and **list**) linked by an **XOR** relation as they are mutually exclusive.
 
-**Mobioos-Forge › Git-branch: Push**       
-It is for Enable/Disable to push the created git branch after the end of the derivation process. 
+> Like
 
-**Mobioos-Forge: Variability**     
-To select the variability workflow Functionality or Resource.
+The **like** feature does pretty much what it says, it enables users to like cards in the flow.
+
+We decided to make this feature available only in the cards display mode and we chose to represent that relation as a cross-feature constraint (**like** => **cards**) instead of making it a child of the cards feature.
+
+This feature being optional it can be activated/deactivated during derivation.
+
+> Default_language 
+
+A pretty straightforward feature, it represent the default language of the application (understand, the language that the app will launch in).
+
+It sets an **XOR** relation between **French** and **English** because, obviously, they are mutually exclusive.
+
+## Resources
+
+As well as features we have some variable resources as well, unlike features, these will have less impact on the code itself after derivation but will change some specific parts.
+
+> Icon and Splash
+
+These resources are the application’s icon and the application’s splash screen image (the image shown while the app is loading on launch).
+
+> Title
+
+This resource is the name of the application after derivating, the name will be displayed in the device’s app.
+
+> Server_URL
+
+This resource enables the front end application to know what URL to use to send requests to the back end, it will rewrite the default base URL of the app.
+
+> Primary_color and Secondary_color
+
+These resources are pretty straightforward, they will overwrite the primary and secondary colors used throughout the application’s design, enabling users to clearly change the app’s identity according to their own graphical chart.
+
+If we don’t choose these two resources (they are optional), the application after derivating will be with its original colors.
+
+> Post types images/color
+
+Each post type feature (**idea, question, event, quote,** and **suggestion**) has a resource child that represents this type of content’s default picture (for **Quote** it’s default color), enabling users to change the default look and feel of each type of content.
+
+If these resources are not filled the app will use the default images (default color for **Quote**) (seen in the user guide).
+
+If quote and/or suggestion aren’t activated, filling the resource information is unnecessary and the default image and color will be deleted from the derivated code. We choose to use constraints to define this relation (**Quote** => **QuoteColor**) and (**Suggestion** => **SuggestionImage**).
+
+If quote and/or suggestion are enabled, we can choose whether or not to change the default color/picture of quote/suggestion as both resources are optional.
+
+# Variability implementation - Mapping and derivation
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image054.png)
+
+</div>
+
+Using this feature model (which is detailed in the <a href="#/?id=variability-specification-the-feature-model">variability specifications</a> file) we then have to place **markers** in the code to mark entry points of features or resources which will then be automatically **propagated** during the **mapping** and enable us to select how to act on the code when activating/deactivating the related features.
+
+For example, if we place a marker on a specific component field, during the mapping process the analyzer will ask us how to act on every reference of said field, enabling us to delete or replace bits and pieces of code for the actual feature.
+
+If we place a marker on files, they will be deleted automatically when the feature is not selected.
+
+After placing our markers we will have to launch the mapping process and set actions to take on the related pieces of code.
+
+Note that mapping a feature means determining what action to take when said feature is **NOT** activated. Mapping a resource is quite different as the resource’s marker will be replaced with the selected value during derivation.
+
+## Mapping
+
+Once all our markers are in place we need to map our features and resources. During this mapping the extension will take us from marker to marker (and to references of those markers) in order for us to decide how to act on the code when the currectly mapped feature is not activated.
+
+The extension offers us 3 options:
+
+- Map all feature : the mapping will be done feature after feature and will end with the mapping or resources (that will not exactly call for actions on our side).
+
+- Map selected feature / resource: this will come in handy when we will have done a complete run of mapping and need to re-map one or several specific features. After selecting this option, the extension will ask us what features we want to map.
+
+In order to launch the mapping, we simply have to right-click on the feature model file and select Mobioos-Forge → Feature mapping → Map all feature (or the other options).
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image055.gif)
+
+</div>
+
+Once the mapping is launched Forge will open the file where the first marker is found. The feature being mapped is shown at the bottom.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image057.png)
+
+</div>
+
+We will have the possibility to select the bit of code to change and select the action on this code by using **ctrl + q** and select in the menu between *“delete”, “replace”, “ignore”* or *“cancel”*.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image059.png)
+
+</div>
+
+- Selecting “delete” will set this part of the code to be deleted when the current feature isn’t selected.
+
+- Selecting “replace” will show another menu that enables us to select an already existing replacement or to create a new one.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image061.png)
+
+</div>
+
+If we choose an existing one it will simply use it and replace the selected code with what’s defined in the replacement, if we choose to create a new one a new file named replacement.ts will open beside the current file and enable us to write the code we want to replace the selected one.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image063.png)
+
+</div>
+
+We can then write whatever we need and save the file, after what we’ll be asked to name that new replacement, the name is prefilled with a suffix to show what feature it’s related to.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image065.png)
+
+</div>
+
+We fill the name as wanted and press enter to validate the selection and finish the replacement creation. This replacement will be used when the feature isn’t selected.
+
+- Selecting “ignore” will ignore that seed and not set any mapping for it, it has the same effect as clicking on nothing (deselecting the seed) and using ctrl + q.
+
+- Selecting “cancel” will completely cancel the mapping process.
+
+In our case and as stated earlier we will mostly use the “delete” option to remove pieces of code.
+
+> Mapping the features
+
+We will continue the mapping with the two features that we have marked:
+
+<span style="color: #2F5496; font-family: 'Calibri Light',sans-serif;">Suggestion</span>
+
+This feature has markers in the frontend and in the backend. The mapper will mix between the backend and frontend markers.
+
+- The first marker is in the backend. It is a string “Suggestion” that is in a method that retrives the default image of a card type.
+
+- We select the piece of code in the Suggestion section, then **ctrl + q** and we choose the deletion action.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image066.gif)
+
+</div>
+
+- Then we pass to the method *“CreateSuggestionDefaultPic“* which creates the default image of the suggestion card in the database. This method is used when launching the backend for the first time.
+
+- We select the whole method then **ctrl + q** and we select **Delete** button.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image068.png)
+
+</div>
+
+- Now we pass to the frontend, we have a method that contains a piece of code related to the suggestion feature. So we will do the same thing as we did previously. Select the piece of code then **ctrl + q** and we select **Delete**.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image069.gif)
+
+</div>
+
+At some point, we’ll reach our HTML file(s).
+
+- We will do the same thing, we select the parts related to the Suggestion feature and delete it.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image070.gif)
+
+</div>
+
+For the file marker feature, the files are automatically set to be deleted when the feature is not selected but in the mapping the mapper will find the paths to these files and we can choose if we delete, replace or ignore these paths.
+
+At the end of our propagation, the mapper will search all these paths to its files (the files that have a file marker). In our case, these paths are declared inside the files which are also marked by the Suggestion feature, so we will just ignore them.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image071.gif)
+
+</div>
+
+> Flow display
+
+Now we will map the children of the feature “flow_display”, the **Cards** display, and the **List** display.
+
+> Cards and List
+
+- The first marker of the Cards feature is on this method used in the Flow component to trigger when a card is answered.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image073.png)
+
+</div>
+
+- We select the whole method then **ctrl + q** and we choose the Deletion action.
+  
+- After that, the mapping process will continue to the next marker or reference to that method. In our case the mapper will find all the markers for the Cards feature then it will find the references of the removed methods.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image074.gif)
+
+</div>
+
+At some point, we’ll reach our HTML file(s),
+
+- The mapping works exactly the same in those, we can delete the parts related to the Cards feature
+
+- We placed our markers on this whole piece of code to avoid having to think about it during the mapping.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image075.gif)
+
+</div>
+
+After finishing the mapping for the Cards feature, we pass now to the List feature. We have to follow the same process.
+
+for the List feature, only one method is called in the Html file and we have markers in the HTML files related to this feature. So the mapping will be faster than the previous one.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image076.gif)
+
+</div>
+
+> Mapping the resources
+
+The resource mapping is simpler than the feature mapping, which will not exactly call for actions on our side.
+
+<span style="color: #2F5496; font-family: 'Calibri Light',sans-serif;">SuggestionImage and primaryColor</span>
+
+When we are on the SuggestionImage resource, the mapper asks us if we want to look for references to this file or not. In our case, we put “Yes” so that the mapper finds other references to this file.
+
+And with the primaryColor, the mapper will not ask us anything.
+
+## Derivation
+
+In order to test our smartapp derivation, we can simply **right-click on the feature model file and select → Mobioos-Forge → Create Configuration**. The extension will then ask us to name that configuration. We can select any name and use Enter to open 
+<div class="align-center">the configuration editor.
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image078.gif)
+
+</div>
+
+This enables us to first try out our features relations and make sure that our feature model is correct, for example, if we select the list feature we see that cards and like features are deactivated as those are mutually exclusive (list and cards via their XOR relation, like is linked to cards via a constraint)
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image080.png)
+
+</div>
+
+We can now try out our variability by filling the necessary fields and selecting the needed features, click on save which will trigger showing errors if there are some. We then just have to click on derivate and wait for the magic to happen.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image082.png)
+
+</div>
+
+A new project will be created in the **C:/Users/<user>/mobioos** folder with the name we used when creating the configuration, in which we’ll find our derivated code, we can for example check that the methods that we set as deleted earlier are effectively deleted.
+
+We can also, of course, launch the app and try it out to see the difference and test everything out.
+
+In summary, to be able to derive an application:
+
+- Install the **Mobioos-Forge** extension.
+
+- Identify variability points for our application using the extension’s feature model.
+
+- Set markers for our features and resources created in the feature model.
+
+- Map the markers we added.
+
+- Finally derive our application.
+
+Using the **Mobioos-Forge** extension is simple and intuitive, just follow the steps described above and you can derive any kind of application.
+
+
+# Front end Marking
+
+## Features Marking
+
+Now that we’ve covered the basics let’s place markers for our features and resources. In this example, we will go over 2 features and 2 resources.
+
+> Suggestion
+
+The *Suggestion* feature enables users to create suggestion posts. There is code for this feature in both the front end and the back end of the application, which means we will have to place 2 sets of markers.
+
+First, we know from the previous sections that in the front end codes for different types of posts are grouped in modules, we can then take advantage of the File Marker Type and place a marker directly on the root directory of the suggestion module. **Right-click on the suggestion directory → Mobioos-Forge → File Markers → Add a file marker**.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image083.gif)
+
+</div>
+
+Next, we select the Suggestion feature
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image085.png)
+
+</div>
+
+This should take care of the suggestion module, by creating a marker on files this way the files are automatically set to be deleted when the feature is not selected.
+
+We can do the same thing to mark the card component for suggestion posts:
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image087.png)
+
+</div>
+
+With only these two markers we should be done with most of the suggestion marking, next, we’ll want to make sure that no reference is left. Most of the references should get picked up by the analyzer but there are some cases that we have to handle ourselves, references in HTML files or lazy loaded references for example.
+
+Let’s handle the lazy-loaded references first, it’s pretty straight forward in our case as it only concerns the routing file of the post-module, we’ll mark the suggestion route as follows
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image089.png)
+
+</div>
+
+We then need to find other and less evident “references”/feature related code, for example, in the main posts page we display a filtering menu to see only posts of specific types, it doesn’t make sense to show the suggestion filter when the feature is deactivated so we’ll need to remove that from the HTML
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image091.png)
+
+</div>
+
+Next, in the choose-new-post-category component we find a menu item to access the creation process and a related component method, we’ll seed both
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image093.png)
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image095.png)
+
+</div>
+
+Note that in this case we could only seed in the html to hide the display and leave the method as is since it should never fall in this switch case, we choose to seed both anyway for code cleanliness sake.
+
+Next, we’ll find 2 occurrences in the flow.html file that we need to mark as well
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image097.png)
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image099.png)
+
+</div>
+
+Last, we seed the Suggestion type in the CardTypes enum
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image101.png)
+
+</div>
+
+With all that we should be done with marking the suggestion feature, every reference that we left aside should get picked up by the analyzer and we will have the opportunity to map them later on.
+
+To recap what we have done:
+
+1. Marker directories that contain suggestion-specific components and modules.
+
+2. Marker lazy-loaded code that cannot be detected by code analyzer here.
+
+3. Marker HTML files to remove pieces of display and related components if necessary.
+
+4. Trust the analyzer to pick up any leftover references in the code.
+
+This is the most straightforward process to follow when the code is modular enough that you can simply delete big chunks of code. We’ll see in the next example that we sometimes need to be a bit more patient to make sure to not miss anything.
+
+
+> Flow display
+
+We will now take care of a somewhat more difficult feature, the flow_display, and more precisely its children, the **Card** display, and the **List** display. For a quick reminder, this part of the feature model.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image103.png)
+
+</div>
+
+We can see that the children’s features are mutually exclusive since they’re linked through a **Xor** relation. We remember that the app has been implemented following the 150% app approach, meaning that the code for each of this feature is present in parallel. Our job here will be to map these implementations to the corresponding feature in order to be able to delete one or the other when derivating.
+
+We’ll start as always with adding seeds, unlike the Suggestion feature that we saw earlier the **Cards** and **List** features are not separated in their own modules so we will not be able to delete big chunks of code here.
+
+Even though it’s mostly a display issue we will also place seeds in the ts files in order to further clean the code from unused code.
+
+First, we will seed the html file for the flow, we can see 2 ng-containers containing a list each, the first one is used to display the cards stack and the second one to display the list, we’ll place our seeds accordingly
+
+The first seed for the Cards feature.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image105.png)
+
+</div>
+
+The second one for the List feature.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image107.png)
+
+</div>
+
+Note that we could have placed the seeds otherwise, only on a piece of those codes, for example, the point here being that we need the mapper to give us the opportunity to decide what to do with this code but the seed doesn’t have to take in the whole code for this. It will ease the mapping this way as we won’t have to think about what piece of code to delete it will be selected according to the seed, it’s only a question of preferences. Seeds placement in html files is not as important as in other files since the analyzer won’t be able to pick up references anyway.
+
+Now, let’s clean up the .ts file, we mostly have to place seeds for the Cards feature as it’s the one needing the most extra methods to handle the cards stack whereas the list display only has one specific method handling answers.
+
+First, we seed the class properties specific to the cards feature
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image109.png)
+
+</div>
+
+These are used to handle the stack of cards and can be deleted when the List feature is selected, this seeds will enable the analyzer to search for references of those properties and let us map the necessary actions.
+
+Next, we will place a seed on each method specific to the cards display, there are several ones:
+*onNextCard, onPreviousCard, onAdaptCardsStack, onDiscard, onSwipeCard* and *onCardAnswered*.
+
+We place the seeds on each method declaration like this
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image111.png)
+
+</div>
+
+This way, the analyzer will find other references to those methods and we will be able to delete the calls when needed.
+
+For the List display, we only need to seed the *onCardListAnswered* method.
+
+Now that we’re done with the flow components we’ll have to take care of the card components, quick reminder, each type of post has its own display component in the shared module. These display components contain the code for each type of display, we’ll basically do the same work for every one of these components, let’s take the event card for example, Just like in the flow we have 2 divs each containing one display, the first for the cards display and second for the list display, we add the corresponding seeds on these.
+
+The first for the cards display
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image113.png)
+
+</div>
+
+The second for the list display.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image115.png)
+
+</div>
+
+Next, we only have a seed to add in the .ts file for the cards display on this property that is used to animate the card when it comes on top of the stack
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image117.png)
+
+</div>
+
+We then repeat these operations on every card component and should be done with seeding these features.
+
+We will follow the same process for every feature in order to have seeds for each. Note that you are not limited in terms of seeds, you can seed every occurrence that you see if it’s more comfortable but trusting the analyzer to detect references and using it at our advantage enables us to be more efficient, just keep in mind that it can detect only references that are present in the syntax tree, a visual example is to use the “Find all references” feature in Visual studio or visual studio code, if you do this on a property and it finds references, the analyzer should find them as well and give us the possibility to map it at mapping time.
+
+## Resources Marking
+
+Now that we’re done marking our features we simply have to marking our resources, these are a bit easier as it generally just replaces a bit of code or a file with whatever resource will be passed during the interview, we’ll take care of the primaryColor resource for this example.
+
+In order to be able to seed resources we need to make sure to switch mode to the resource variability by clicking on the corresponding button in the bottom bar:
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image119.png)
+
+</div>
+
+Once we click this button it will switch to resource variability:
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image121.png)
+
+</div>
+
+We’re now ready to add seeds for resources.
+
+> Primary color
+
+The primary color of the application is the color that is used throughout the app to give it a coherent design, in this app it is used in some important text and mostly as a general background color, by default it’s a nice dark purple (*#4324B0*) and since the colors are optional resources if the user chooses not to customize it will use this color. This resource impacts only the front end of the application in our case.
+
+To mark this color (and the secondary one alike), we simply need to find its declaration, in our case, it’s located in the theme/variables.scss file, and put a marker on the color value.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image123.png)
+
+</div>
+
+Since the resource is marked as a color resource the user will be presented with a color picker and this declaration will be replaced with the chosen hexadecimal value.
+
+That’s it in this case. Note that if the color were not uniquely declared we would need to find everywhere in the css files where the hexa code is used to mark it, it’s doable, it would work, but we can see that it represents a bit more work to find all those occurrences. The analyzer won’t be able to pick this up by itself.
+
+# Backend Marking
+
+## Features marking
+
+> Suggestion
+
+In the backend codes, we have for each type of post a class, so we can use the file marking feature and place a marker on the file “Suggestion”. If the Suggestion feature is not activated, the file will be deleted.
+
+To add this file seed, we simply go to the class “Suggestion”. **Right-click on the file and select → Mobioos-Forge → File Markers → Add a file marker**.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image125.png)
+
+</div>
+
+Then we choose what feature this marker is related to, we select **Suggestion**.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image127.png)
+
+</div>
+
+Once the marker is applied, you will notice that the name of the file has changed color and it is written “MF” on the right.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image129.png)
+
+</div>
+
+Now, we will look for other references. We have a Suggestion type in the CardTypes enumeration. We select the string “Suggestion”. **Right-click then Mobioos-Forge → Add a feature/resource marker**.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image131.png)
+
+</div>
+
+Once the marker applied it will show with the node’s marker color as the background.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image133.png)
+
+</div>
+
+Next, in the file DbInitializer.cs we have a method that creates the default picture for the suggestion card, we will add a seed on this method.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image135.png)
+
+</div>
+
+Last, we have a global variable to get the PictureId of the Suggestion card. In the file program.cs, we will add a seed for this variable.  
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image137.png)
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image139.png)
+
+</div>
+
+The remaining references should get picked up by the analyzer.
+
+<span style="color: #2F5496; font-family: 'Calibri Light',sans-serif;">To recap what we have done:</span>
+
+- Mark the file of suggestion
+
+- Mark variables and methods used by the suggestion feature
+
+- Trust the analyzer to retrieve the remaining references in the code.
+
+## Resources  marking
+
+Before starting to add marks for resources, we need to be in the right setup. We simply click on the button in the bottom bar to switch to **Resource variability**.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image141.png)
+
+</div>
+
+> SuggestionImage
+
+<div class="align-center">
+
+The SuggestionImage resource represents the default picture for the suggestion card.
+
+</div>
+
+To add a marker to this resource, we have to find the URL referencing this picture. In the method CreateSuggestionDefaultPic found in the file DbInitializer.cs. **Right-click on the URL, select Mobioos-Forge → Add a feature/resource marker then select SuggestionImage**.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image143.png)
+
+</div>
+
+The marker is added.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image144.png)
+
+</div>
+
+# Variability implementation - Seeding
+
+## The code base
+
+Before starting to place markers we need to analyze the code to have a better idea of what impact should have each feature on our code.
+
+Hive is separated as a front end in Ionic (4) and a back end in dotnet 5.0, linked to an sqlserver database, which means we will have to place markers in both front end and back end in order to have a coherent derivated code and coherent database data.
+
+The application has been implemented following the 150% application concept, meaning that the smartapp contains the code for every feature in parallel, even the mutually exclusive ones. This means that :
+
+1. The smartapp in itself won’t build and run
+
+2. It will ease the mapping of features as we will mostly have to delete pieces of code that are related to disabled features.
+
+We could get the same result by not including the 150% of code and replacing existing code during the mapping, it depends on your preferences.
+
+## Placing markers
+
+Creating markers is quite easy with Forge, you simply select the piece of code you want to place a marker on, **right click and select Mobioos-Forge → add a feature/resource marker**. Or select a folder or file then **right click and select Mobioos-Forge → File markers → Add a file marker**.
+
+Forge will then ask us what feature/resource this marker is related to, we simply select the feature from the list. Note that to place merkers for a feature/resource you need to be in the correct configuration, the options presented in the above menu depend on this, simply click on the button in the bottom bar to switch between resource or functionality variability.
+
+Once a marker is applied it will show with the node’s marker color (set in the feature model) as background if the parameter is activated in the extension’s settings, if not it will only indicate the presence of a marker by displaying the marker color in the line start. Note that this will display only the markers according to the current configuration (functionality variability will show only features markers and resource variability will show only resources markers)
+
+### Features marking
+
+Now that we’ve covered the basics let’s place markers for our features and resources. In this example we will go over 2 features and 2 resources.
+
+> Suggestion
+
+The suggestion feature enables users to create suggestion posts. There is code for this feature in both the front end and the back end of the application, which means we will have to place 2 sets of markers. Let’s start with the back end
+
+<span style="color: #2F5496; font-family: 'Calibri Light',sans-serif;">Back end</span>
+
+In the backend codes, we have for each type of post a class, so we can use the file marker feature and place a marker on the file “Suggestion”. If the suggestion feature is not activated, the file will be deleted.
+
+To add this file marker, we simply go to the class “Suggestion”. **Right click on the file and select → Mobioos-Forge → File Markers → Add a file marker.** Then we choose what feature this marker is related to, we select **Suggestion.**
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image145.gif)
+
+</div>
+
+Once the marker is applied, you will notice that the name of the file has changed color and it is written “MF” on the right.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image146.png)
+
+</div>
+
+Now, we will look for other references. We have Suggestion type in the CardTypes enumeration. We select the field “Suggestion”. **Right click then Mobioos-Forge → Add a feature/resource marker**.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image147.gif)
+
+</div>
+
+Once the marker applied it will show with the node’s marker color as background. You can disable this background color from the extension’s settings, this way only the color indicator in the side bar will show (**Settings → Extensions → Mobioos Forge Configuration → Decorations: Background color**).
+
+Next, in the file DbInitializer.cs we have a method which creates the default picture for the suggestion card, we will add a marker on this method.
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image148.gif)
+
+Last, we have a global variable to get the PictureId of Suggestion card. In the file program.cs, we will add a marker for this variable.  
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image149.gif)
+
+</div>
+
+The remaining references should get picked up by the analyzer during mapping.
+
+<span style="color: #2F5496; font-family: 'Calibri Light',sans-serif;">To recap what we have done:</span>
+
+- Place a marker on the Suggestion class file
+
+- Place a marker on variables and methods used by the suggestion feature
+
+- Trust the analyzer to retrieve the remaining references in the code.
+
+<span style="color: #2F5496; font-family: 'Calibri Light',sans-serif;">Front end</span>
+
+First, we know from the previous chapters that in the front end codes for different types of post are grouped in modules, we can then take advantage of the file marker feature and place a marker directly on the root directory of the suggestion module. **Right click on the suggestion directory → Mobioos-Forge → File Markers → Add a file marker**. Next we select the Suggestion feature and select no when asked if the analyzer should run a content analysis on the file.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image083.gif)
+
+</div>
+
+This should take care of the suggestion module, by creating a marker on files this way the files are automatically set to be deleted when the feature is not selected.
+
+We can do the same thing to mark the card component for suggestion posts:
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image150.gif)
+
+</div>
+
+With only these two markers we should be done with most of the suggestion marking, next we’ll want to make sure that no reference is left. Most of the references should get picked up by the analyzer but there are some cases that we have to handle ourselves, references in html files or lazy loaded references for example.
+
+Let’s handle the lazy loaded references first, it’s pretty straight forward in our case as it only concerns the routing file of the post module, we’ll mark the suggestion route as follows
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image151.gif)
+
+</div>
+
+We then need to find other and less evident “references”/feature related code, for example, in the main posts page we display a filtering menu to see only posts of specific types, it doesn’t make sense to show the suggestion filter when the feature is disabled so we’ll need to remove that from the html, let’s put a marker on it.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image152.gif)
+
+</div>
+
+Next, in the choose-new-post-category component we find a menu item to access the creation process and a related component method, we’ll mark both
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image153.gif)
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image154.gif)
+
+Note that in this case we could only place a marker in the html to hide the display and leave the method as is since it should never fall in this switch case, we choose to mark both anyway for code cleanliness' sake.
+
+Next, we’ll find 2 occurences in the flow.html file that we need to mark as well
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image155.gif)
+
+</div>
+
+Last, we place a marker on the Suggestion type in the CardTypes enum
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image156.gif)
+
+</div>
+
+With all that we should be done with marking the suggestion feature, every references that we left aside should get picked up by the analyzer and we will have the opportunity to map them later on.
+
+**To recap what we have done:**
+
+1. Place a marker on the directories that contain suggestion specific components and modules.
+
+2. Mark lazy loaded code that cannot be detected by code analyzer here.
+
+3. Place markers on HTML files to remove pieces of display and related components if necessary.
+
+4. Trust the analyzer to pick up any leftover references in the code.
+
+This is the most straight forward process to follow when the code is modular enough that you can simply delete big chunks of code. We’ll see in the next example that we sometimes need to be a bit more patient to make sure to not miss anything
+
+### Flow display
+
+We will now take care of a somewhat more difficult feature, the flow_display, and more precisely its children, the **Cards** display and the **List** display. For a quick reminder, this part of the feature model.
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image102.png)
+
+</div>
+
+We can see that the children features are mutually exclusive since they’re linked through a **Xor** relation. We remember that the app has been implemented following the 150% app concept, meaning that the code for each of this features is present in parallel. Our job here will be to map these implementations to the corresponding feature in order to be able to delete one or the other when derivating.
+
+The good news is that these features are handled in the front end only, we will not have to place markers in the back end.
+
+We’ll start as always with adding markers, unlike the Suggestion feature that we saw earlier the **Cards** and **List** features are not separated in their own modules so we will not be able to delete big chunks of code here.
+
+Even though it’s mostly a display issue we will also place markers in the .ts files in order to further clean the code from unused code.
+
+First, we will place markers on the html file for the flow, we can see 2 ng-containers containing a list each, the first one is used to display the cards stack and the second one to display the list, we’ll place our markers accordingly
+
+The first marker for the Cards feature.
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image157.gif)
+
+The second one for the List feature.
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image158.gif)
+
+Note that we could have placed the markers otherwise, only on a piece of those codes for example, the point here being that we need the mapper to give us the opportunity to decide what to do with this code but the marker doesn’t have to take in the whole code for this. It will ease the mapping this way as we won’t have to think about what piece of code to delete it will be selected according to the marker, it’s only a question of preferences. Markers placement in html files is not as important as in other files since the analyzer won’t be able to pick up references anyway.
+
+Now, let’s clean up the .ts file, we mostly have to place markers for the Cards feature as it’s the one needing the most extra methods to handle the cards stack whereas the list display only has one specific method handling answers.
+
+First, we mark the class properties specific to the cards feature
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image159.gif)
+
+These are used to handle the stack of cards and can be deleted when the List feature is selected, this markers will enable the analyzer to search for references of those properties and let us map the necessary actions.
+
+Next, we will place a merker on each method specific to the cards display, there are several ones:
+*onNextCard*, *onPreviousCard*, *onAdaptCardsStack*, *onDiscard*, *onSwipeCard* and *onCardAnswered*.
+
+We place the markers on each method declaration like this
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image160.gif)
+
+This way, the analyzer will find other references to those methods and we will be able to delete the calls when needed.
+
+For the List display we only need to mark the *onCardListAnswered* method.
+
+Now that we’re done with the flow components we’ll have to take care of the cards components, quick reminder, each type of post has its own display component in the shared module. These display components contain the code for each type of display, we’ll basically do the same work for every one of these components, let’s take the event card for example, Just like in the flow we have 2 divs each containing one display, the first for the cards display and second for the list display, we add the corresponding markers on these.
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image161.gif)
+
+Next, we only have a marker to add in the .ts file for the cards display on this property that si used to animate the card when it comes on top of the stack
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image162.gif)
+
+We then repeat these operations on every card components and should be done with marking these features.
+
+We will follow the same process for every feature in order to have markers for each. Note that you are not limited in terms of markers, you can place markers on every occurence that you see if it’s more comfortable but trusting the analyzer to detect references and using it at our advantage enables us to be more efficient, just keep in mind that it can detect only references that are present in the syntax tree, a visual example is to use the “Find all references” feature in Visual studio or visual studio code, if you do this on a property and it finds references, the analyzer should find them as well and give us the possibility to map it at mapping time.
+
+## Resources marking
+
+Now that we’re done placing markers for our features we simply have to mark our resources, these are a bit easier as it generally just replaces a bit of code or a file with whatever resource will be passed during the interview, we’ll take care of the primaryColor resource for this example.
+
+In order to be able to place resources markers we need to make sure to switch mode to the resource variability by clicking on the corresponding button in the bottom bar:
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image163.png)
+
+</div>
+
+Once we click this button it will switch to resource variability:
+
+
+<div class="align-center">
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image164.png)
+
+</div>
+
+We’re now ready to add markers for resources.
+
+> SuggestionImage
+
+The SuggestionImage resource represents the default picture for the suggestion card. We use the image file to save a base64 representation of it in the database. This feature impacts only the back end as the front end will simply request it when needed.
+
+To add a marker to this resource, we have to find the url referencing this picture. In the method CreateSuggestionDefaultPic found in the file DbInitializer.cs. **Right click on the url, select Mobioos-Forge → Add a feature/resource marker then select SuggestionImage**.
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image165.gif)
+
+What will happen to this when derivation comes is that, if the user choose to give a custom image, the file found in that path will be deleted and replaced with the custom image, the route will be updated accordingly if needed. If the route appears anywhere else we will need to place a marker there as well, it’s not the case here.
+
+> Primary color
+
+The primary color of the application is the color that is used throughout the app to give it a coherent design, in this app it is used in some important text and mostly as a general background color, by default it’s a nice dark purple (*#4324B0*) and since the colors are optional resources if the user choose not to customize it it will use this color. This resource impacts only the front end of the application in our case.
+
+To place a marker for this color (and the secondary one alike) we simply need to find its declaration, in our case it’s located in the theme/variables.scss file, and put a marker on the color value
+
+![alt text](https://mobioosstorageaccount.blob.core.windows.net/public-documentation/Hive-Doc/image166.gif)
+
+Since the resource is marked as a color resource the user will be presented with a color picker and this declaration will be replaced with the chosen hexadecimal value.
+
+That’s it in this case. Note that if the color were not uniquely declared we would need to find everywhere in the style files where the hexa code is used to mark it, it’s doable, it would work, but we can see that it represents a bit more work to find all those occurences. The analyzer won’t be able to pick this up by itself.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
